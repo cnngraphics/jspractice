@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript">
+        
+        // house all of it in a function
+        function startGame()
+        {
+            var cpuNumber = parseFloat(Math.floor(Math.random()*100));
+            var attempts = 1;
+            console.log("CPU Num: " + cpuNumber);
+
+            ///guess the number
+                var guess = parseFloat(prompt("What number do I have in Mind between 51 and 100?"));
+                //guess is a string converted into number (int is not a type is jS)
+                //console.log(typeof(guess));
+
+                console.log("Guess: "+guess);
+                
+            // compare guess with cpuNumber
+            while(guess!=cpuNumber)
+            {
+                if (guess <cpuNumber)
+                {
+                    
+                    guess = parseFloat(prompt(guess+" is to0 low! \n\n Guess again"));
+                    attempts++;
+                    console.log("Attempt #"+attempts);
+                }
+                else if( guess > cpuNumber)
+                {
+                    
+                    guess = parseFloat(prompt(guess+" is too High \n\n Guess again"));
+                    attempts++;
+                     console.log("Attempt #"+attempts);
+                }
+                
+            }
+            //count attemps
+
+            // When guess == cpuNumber show congrats and number of attemps
+            if(guess ==cpuNumber)
+            {
+               alert('You got it \n\nNumber of attempt:'+ attempts);
+               ((confirm("Want to try again?",'Yes', 'No'))?startGame():false);
+            }
+        }
+        startGame();
+    </script>
+</head>
+    <body>
+            Test
+    </body>
+</html>
